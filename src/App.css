@@ -1,6 +1,53 @@
 #root {
-  max-width: 1280px;
+  max-width: 1500px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  width: 100%;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  gap: 2rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.link-section {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.resume {
+  display: flex;
+  flex-direction: column;
+  background-color: aqua;
+  color: black;
+
+  min-width: 800px;
+}
+
+.resume-section {
+  padding: 1rem;
+  background-color: azure;
+}
+
+.sub-title {
+  text-align: left;
+}
+
+.line {
+  background-color: black;
+  border: none;
+  padding: 1px;
 }
