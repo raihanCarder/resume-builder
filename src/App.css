@@ -1,5 +1,10 @@
+:root {
+  --body-color: gray;
+}
+
 #root {
   max-width: 1500px;
+
   margin: 0 auto;
   text-align: center;
   width: 100%;
@@ -9,8 +14,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: red;
-  gap: 2rem;
+  background-color: var(--body-color);
+  gap: 1rem;
 }
 
 * {
@@ -31,13 +36,15 @@
 .resume {
   display: flex;
   flex-direction: column;
-  background-color: aqua;
   color: black;
 
   min-width: 800px;
 }
 
 .resume-section {
+  min-height: 800px;
+  max-height: 800px;
+
   padding: 1rem;
   background-color: azure;
 }
@@ -50,4 +57,21 @@
   background-color: black;
   border: none;
   padding: 1px;
+}
+
+ul {
+  list-style-position: inside;
+  padding-left: 1rem;
+}
+
+.skill {
+  text-align: left;
+}
+
+.editor {
+  background-color: aliceblue;
+  color: black;
+  min-width: 500px;
+  min-height: 800px;
+  padding: 1rem;
 }
