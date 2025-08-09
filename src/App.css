@@ -43,7 +43,6 @@
 
 .resume-section {
   min-height: 800px;
-  max-height: 800px;
 
   padding: 1rem;
   background-color: azure;
@@ -61,6 +60,9 @@
 
 ul {
   list-style-position: inside;
+}
+
+.list-padding {
   padding-left: 1rem;
 }
 
@@ -74,4 +76,16 @@ ul {
   min-width: 500px;
   min-height: 800px;
   padding: 1rem;
+}
+
+.school-section {
+  text-align: left;
+  width: 100%;
+}
+
+.top-school-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

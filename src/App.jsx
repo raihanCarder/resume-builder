@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { Fragment } from "react";
+import { exampleData } from "./examplePerson";
 
 function TitleSection({ name, links }) {
   return (
@@ -36,7 +37,7 @@ function SkillSection({ skills }) {
       <h3 className="sub-title">Summary of Skills</h3>
       <hr className="line" />
 
-      <ul>
+      <ul className="list-padding">
         {skills.map((el) => {
           return (
             <li key={el.id} className="skill">
@@ -55,6 +56,19 @@ function EducationSection({ data }) {
     <>
       <h3 className="sub-title">Education</h3>
       <hr className="line" />
+      <ul>
+        {data.map((school) => {
+          return (
+            <div key={school.id} className="school-section">
+              <div className="top-school-section">
+                <p>{school.program}</p>
+                <p>{school.timeThere}</p>
+              </div>
+              <p>{school.name}</p>
+            </div>
+          );
+        })}
+      </ul>
     </>
   );
 }
@@ -74,39 +88,29 @@ function Editor({ resumeData, setResumeData }) {
   );
 }
 
+function ExperienceSection({ data }) {
+  return (
+    <>
+      <h3 className="sub-title">Experience</h3>
+      <hr className="line" />
+      <p>{data[0].jobTitle}</p>
+    </>
+  );
+}
+
 function Resume({ demoPerson }) {
   return (
     <div className="resume">
       <TitleSection name={demoPerson.name} links={demoPerson.links} />
       <SkillSection skills={demoPerson.skills} />
       <EducationSection data={demoPerson.schools} />
+      <ExperienceSection data={demoPerson.experience} />
     </div>
   );
 }
 
 function App() {
-  const [resumeData, setResumeData] = useState({
-    name: "Raihan",
-    links: [
-      { id: crypto.randomUUID(), value: "email@" },
-      { id: crypto.randomUUID(), value: "FakeLinked" },
-      { id: crypto.randomUUID(), value: "Gith" },
-    ],
-    skills: [
-      { id: crypto.randomUUID(), skill: "Labubus" },
-      { id: crypto.randomUUID(), skill: "Matcha" },
-      { id: crypto.randomUUID(), skill: "Feminism" },
-    ],
-    schools: [
-      {
-        id: crypto.randomUUID(),
-        name: "Uoft",
-        timeThere: "2024-2028",
-        program: "CS",
-        desc: [],
-      },
-    ],
-  });
+  const [resumeData, setResumeData] = useState(exampleData);
 
   return (
     <>
