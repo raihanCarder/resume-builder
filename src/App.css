@@ -89,3 +89,9 @@ ul {
   justify-content: space-between;
   align-items: center;
 }
+
+.name-section {
+  display: flex;
+  gap: 1rem;
+  padding-left: 1rem;
+}
