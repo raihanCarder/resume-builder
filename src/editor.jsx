@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function Editor({ resumeData, setResumeData }) {
   return (
     <div className="editor">
@@ -7,10 +9,21 @@ export default function Editor({ resumeData, setResumeData }) {
 }
 
 function GeneralInfoSection({ data, setResumeData }) {
+  const [mode, setMode] = useState("none");
+
   const handleNameChange = (e) => {
     setResumeData((prev) => ({
       ...prev,
       name: e.target.value,
+    }));
+  };
+
+  const handleLinkChange = (id, newValue) => {
+    setResumeData((prev) => ({
+      ...prev,
+      links: prev.links.map((l) =>
+        l.id === id ? { ...l, value: newValue } : l
+      ),
     }));
   };
 
@@ -21,6 +34,24 @@ function GeneralInfoSection({ data, setResumeData }) {
     }));
   };
 
+  const editMode = (e) => {
+    if (mode === "none") {
+      setMode("edit");
+      e.target.textContent = "Stop Editing";
+    } else {
+      setMode("none");
+      e.target.textContent = "Edit Links";
+    }
+  };
+
+  const addMode = () => {
+    if (mode === "none") {
+      setMode("add");
+    } else {
+      setMode("none");
+    }
+  };
+
   return (
     <>
       <h2 className="sub-title">General Information</h2>
@@ -29,19 +60,49 @@ function GeneralInfoSection({ data, setResumeData }) {
         <input type="text" value={data.name} onChange={handleNameChange} />
       </div>
       <h2 className="sub-title">Links:</h2>
-      {data.links.map((link) => {
-        return <Link id={link.id} value={link.value} onDelete={deleteLink} />;
-      })}
-      <button>Add Link</button>
+      {mode !== "add" ? (
+        data.links.map((link) => {
+          return (
+            <Link
+              id={link.id}
+              value={link.value}
+              onDelete={deleteLink}
+              onChange={handleLinkChange}
+              mode={mode}
+            />
+          );
+        })
+      ) : (
+        <p>aa</p>
+      )}
+      <button disabled={mode === "edit"} onClick={addMode}>
+        Add Link
+      </button>
+      <button onClick={(e) => editMode(e)}>
+        {mode === "add" ? "Exit" : "Edit Links"}
+      </button>
     </>
   );
 }
 
-function Link({ id, value, onDelete }) {
+function Link({ id, value, onDelete, onChange, mode }) {
   return (
     <div key={id} className="editor-link-design">
-      <p>{value}</p>
-      <button className="delete-btn" id={id} onClick={() => onDelete(id)}>
+      {mode === "edit" ? (
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => onChange(id, e.target.value)}
+        />
+      ) : (
+        <p>{value}</p>
+      )}
+      <button
+        className="delete-btn"
+        id={id}
+        onClick={() => onDelete(id)}
+        disabled={mode === "edit"}
+      >
         Delete
       </button>
     </div>
