@@ -13,8 +13,8 @@ export default function Resume({ demoPerson }) {
 
 function TitleSection({ name, links }) {
   return (
-    <>
-      <h1>{name}</h1>
+    <div className="title-section">
+      <h1 className="title">{name}</h1>
       <div className="link-section">
         {links.map((link, index) => (
           <Fragment key={link.id}>
@@ -24,7 +24,7 @@ function TitleSection({ name, links }) {
         ))}
       </div>
       <hr className="line" />
-    </>
+    </div>
   );
 }
 
@@ -33,7 +33,7 @@ function TitleLink({ info }) {
 
   return (
     <>
-      <p>{info}</p>
+      <p className="link-text">{info}</p>
     </>
   );
 }

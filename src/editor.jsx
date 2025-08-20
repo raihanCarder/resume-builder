@@ -12,6 +12,7 @@ export default function Editor({ resumeData, setResumeData }) {
 function LinkSection({ data, setResumeData }) {
   const [mode, setMode] = useState("none");
   const [newLink, setNewLink] = useState("");
+  const [count, setCount] = useState(data.links.length);
 
   const handleLinkChange = (id, newValue) => {
     setResumeData((prev) => ({
@@ -27,6 +28,7 @@ function LinkSection({ data, setResumeData }) {
       ...prev,
       links: prev.links.filter((item) => item.id !== id),
     }));
+    setCount(count - 1);
   };
 
   const editMode = (e) => {
@@ -48,7 +50,9 @@ function LinkSection({ data, setResumeData }) {
     }));
     setNewLink("");
     setMode("none");
+    setCount(count + 1);
   };
+
   const addMode = () => {
     if (mode === "none") {
       setMode("add");
@@ -77,10 +81,10 @@ function LinkSection({ data, setResumeData }) {
         <input value={newLink} onChange={(e) => setNewLink(e.target.value)} />
       )}
       <button
-        disabled={mode === "edit"}
+        disabled={mode === "edit" || count >= 3}
         onClick={mode === "none" ? addMode : (e) => addLink(e)}
       >
-        Add Link
+        {count >= 3 ? "Max Amount of Links" : "Add Link"}
       </button>
       <button onClick={(e) => editMode(e)}>
         {mode === "add" ? "Exit" : "Edit Links"}
@@ -118,7 +122,12 @@ function Link({ id, value, onDelete, onChange, mode }) {
           onChange={(e) => onChange(id, e.target.value)}
         />
       ) : (
-        <p>{value}</p>
+        <input
+          type="text"
+          value={value}
+          className="disabled-link"
+          disabled={true}
+        />
       )}
       <button
         className="delete-btn"
