@@ -86,7 +86,28 @@ function ExperienceSection({ data }) {
     <>
       <h3 className="sub-title">Experience</h3>
       <hr className="line" />
-      <p>{data[0].jobTitle}</p>
+      <div className="experience-info">
+        {data.map((data) => {
+          return (
+            <div className="job-information">
+              <div className="top-of-job-info">
+                <p>{data.jobTitle}</p>
+                <p>{data.lengthOfEmployment}</p>
+              </div>
+              <p>{data.company}</p>
+              <ul className="list-padding">
+                {data.tasks.map((item) => {
+                  return (
+                    <li key={item.id} className="task">
+                      {item.task}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }
