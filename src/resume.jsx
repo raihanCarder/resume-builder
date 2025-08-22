@@ -91,7 +91,7 @@ function ExperienceSection({ data }) {
           return (
             <div className="job-information">
               <div className="top-of-job-info">
-                <p>{data.jobTitle}</p>
+                <p className="bolded">{data.jobTitle}</p>
                 <p>{data.lengthOfEmployment}</p>
               </div>
               <p>{data.company}</p>
