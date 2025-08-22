@@ -139,6 +139,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
 }
 
 .editor-link-design {
@@ -177,6 +178,21 @@ input {
   padding-left: 1rem;
 }
 
+/* Editor Links Section */
+
+.editor-links-btns {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.editor-links-btns > * {
+  flex: 1;
+  min-width: 0;
+}
+
 /* Resume Section Experience */
 
 /* This one under includes the Education section aswell */
@@ -198,5 +214,33 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
+}
+
+/* Editor Skill Section */
+
+.editor-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.editor-skill-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 1rem;
+}
+
+.editor-button-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.editor-button-section > * {
   width: 100%;
 }

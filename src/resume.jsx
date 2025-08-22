@@ -89,9 +89,14 @@ function ExperienceSection({ data }) {
       <div className="experience-info">
         {data.map((data) => {
           return (
-            <div className="job-information">
+            <div className="job-information" key={data.id}>
               <div className="top-of-job-info">
-                <p className="bolded">{data.jobTitle}</p>
+                <p
+                  className="bolded
+                "
+                >
+                  {data.jobTitle}
+                </p>
                 <p>{data.lengthOfEmployment}</p>
               </div>
               <p>{data.company}</p>

@@ -5,7 +5,52 @@ export default function Editor({ resumeData, setResumeData }) {
     <div className="editor">
       <GeneralInfoSection data={resumeData} setResumeData={setResumeData} />
       <LinkSection data={resumeData} setResumeData={setResumeData} />
+      <SkillSection data={resumeData} setResumeData={setResumeData} />
     </div>
+  );
+}
+
+function SkillSection({ data, setResumeData }) {
+  const [mode, setMode] = useState("view");
+
+  const skillData = data.skills;
+  return (
+    <div className="editor-skills">
+      <h2 className="sub-title">Skills:</h2>
+      {mode === "view" && <ViewSkills skills={skillData} setMode={setMode} />}
+      {/* {mode === "edit" && }
+      {mode === "add" && } */}
+    </div>
+  );
+}
+
+function ViewSkills({ skills, setMode }) {
+  return (
+    <>
+      <div className="editor-skill-section">
+        {skills.map((item) => {
+          return (
+            <>
+              <input
+                key={item.id}
+                type="text"
+                value={item.skill}
+                className="disabled-link"
+                disabled={true}
+              />
+            </>
+          );
+        })}
+      </div>
+      <div className="editor-button-section">
+        <button type="button" onClick={() => setMode("add")}>
+          Add Skill
+        </button>
+        <button type="button" onClick={() => setMode("edit")}>
+          Edit Skills
+        </button>
+      </div>
+    </>
   );
 }
 
@@ -80,15 +125,18 @@ function LinkSection({ data, setResumeData }) {
       ) : (
         <input value={newLink} onChange={(e) => setNewLink(e.target.value)} />
       )}
-      <button
-        disabled={mode === "edit" || count >= 3}
-        onClick={mode === "none" ? addMode : (e) => addLink(e)}
-      >
-        {count >= 3 ? "Max Amount of Links" : "Add Link"}
-      </button>
-      <button onClick={(e) => editMode(e)}>
-        {mode === "add" ? "Exit" : "Edit Links"}
-      </button>
+      <div className="editor-links-btns">
+        <button
+          disabled={mode === "edit" || count >= 3}
+          className="link-btns-styling"
+          onClick={mode === "none" ? addMode : (e) => addLink(e)}
+        >
+          {count >= 3 ? "Max Amount of Links" : "Add Link"}
+        </button>
+        <button onClick={(e) => editMode(e)}>
+          {mode === "add" ? "Exit" : "Edit Links"}
+        </button>
+      </div>
     </div>
   );
 }
@@ -103,7 +151,7 @@ function GeneralInfoSection({ data, setResumeData }) {
 
   return (
     <>
-      <h2 className="sub-title">General Information</h2>
+      <h2 className="sub-title">General Information:</h2>
       <div className="name-section">
         <p>Name:</p>
         <input type="text" value={data.name} onChange={handleNameChange} />
