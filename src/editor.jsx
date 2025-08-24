@@ -18,8 +18,10 @@ function SkillSection({ data, setResumeData }) {
     <div className="editor-skills">
       <h2 className="sub-title">Skills:</h2>
       {mode === "view" && <ViewSkills skills={skillData} setMode={setMode} />}
-      {/* {mode === "edit" && } */}
-      {mode === "add" && <AddSkill data={data} setResumeData={setResumeData} />}
+      {mode === "edit" && <ExitSkills data={data} />}
+      {mode === "add" && (
+        <AddSkill setResumeData={setResumeData} setMode={setMode} />
+      )}
     </div>
   );
 }
@@ -54,12 +56,65 @@ function ViewSkills({ skills, setMode }) {
   );
 }
 
-function AddSkill({ data, setResumeData }) {}
+function AddSkill({ setResumeData, setMode }) {
+  const [skill, setSkill] = useState("");
+
+  const addSkill = (e) => {
+    e.preventDefault();
+
+    if (!skill) {
+      setMode("view");
+      return; // don't add empty skill
+    }
+
+    setResumeData((prev) => {
+      return {
+        ...prev,
+        skills: [...prev.skills, { id: crypto.randomUUID(), skill }], // Must make new array to not mutate state
+      };
+    });
+    setMode("view");
+  };
+
+  const exitMode = (e) => {
+    e.preventDefault();
+    setMode("view");
+  };
+
+  return (
+    <>
+      <form action="" method="post" className="form-skill">
+        <input
+          type="text"
+          placeholder="Enter new Skill Here"
+          onChange={(e) => setSkill(e.target.value)}
+          className="input-skill"
+        />
+        <div className="editor-form-button-section">
+          <button
+            type="submit"
+            onClick={(e) => {
+              addSkill(e);
+            }}
+          >
+            Add Skill
+          </button>
+          <button type="button" onClick={(e) => exitMode(e)}>
+            Exit
+          </button>
+        </div>
+      </form>
+    </>
+  );
+}
+
+function ExitSkills({ data }) {}
 
 function LinkSection({ data, setResumeData }) {
   const [mode, setMode] = useState("none");
   const [newLink, setNewLink] = useState("");
-  const [count, setCount] = useState(data.links.length);
+
+  const count = data.links.length;
 
   const handleLinkChange = (id, newValue) => {
     setResumeData((prev) => ({
@@ -75,7 +130,6 @@ function LinkSection({ data, setResumeData }) {
       ...prev,
       links: prev.links.filter((item) => item.id !== id),
     }));
-    setCount(count - 1);
   };
 
   const editMode = (e) => {
@@ -97,7 +151,6 @@ function LinkSection({ data, setResumeData }) {
     }));
     setNewLink("");
     setMode("none");
-    setCount(count + 1);
   };
 
   const addMode = () => {

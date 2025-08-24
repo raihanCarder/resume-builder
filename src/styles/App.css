@@ -232,15 +232,33 @@ input {
   padding-left: 1rem;
 }
 
-.editor-button-section {
+.editor-button-section,
+.editor-form-button-section {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 1rem;
+}
+
+.editor-button-section {
   padding-left: 1rem;
+}
+
+.editor-form-button-section > * {
+  width: 100%;
 }
 
 .editor-button-section > * {
   width: 100%;
+}
+
+/* input add skill */
+
+.input-skill {
+  width: 100%;
+}
+
+.form-skill {
+  padding-left: 1rem;
 }
