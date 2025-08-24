@@ -18,8 +18,8 @@ function SkillSection({ data, setResumeData }) {
     <div className="editor-skills">
       <h2 className="sub-title">Skills:</h2>
       {mode === "view" && <ViewSkills skills={skillData} setMode={setMode} />}
-      {/* {mode === "edit" && }
-      {mode === "add" && } */}
+      {/* {mode === "edit" && } */}
+      {mode === "add" && <AddSkill data={data} setResumeData={setResumeData} />}
     </div>
   );
 }
@@ -53,6 +53,8 @@ function ViewSkills({ skills, setMode }) {
     </>
   );
 }
+
+function AddSkill({ data, setResumeData }) {}
 
 function LinkSection({ data, setResumeData }) {
   const [mode, setMode] = useState("none");
