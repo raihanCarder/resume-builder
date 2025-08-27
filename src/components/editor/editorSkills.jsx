@@ -118,23 +118,30 @@ function EditSkills({ data, setResumeData, exitMode }) {
     }));
   };
 
+  const deleteSkill = (id) => {
+    setResumeData((prev) => ({
+      ...prev,
+      skills: prev.skills.filter((item) => item.id !== id),
+    }));
+  };
+
   return (
-    <>
+    <div className="edit-skill-section">
       {data.skills.map((item) => {
         return (
-          <>
+          <div key={item.id} className="editor-skill-display">
             <input
-              key={item.id}
               type="text"
               value={item.skill}
               onChange={(e) => handleSkillChange(item.id, e.target.value)}
             />
-          </>
+            <button onClick={() => deleteSkill(item.id)}>Delete</button>
+          </div>
         );
       })}
       <button type="button" onClick={(e) => exitMode(e)}>
-        Exit
+        Exit Edit Mode
       </button>
-    </>
+    </div>
   );
 }

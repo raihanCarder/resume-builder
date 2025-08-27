@@ -262,3 +262,26 @@ input {
 .form-skill {
   padding-left: 1rem;
 }
+
+/* Editor Edit Skill Section */
+.edit-skill-section {
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.editor-skill-display {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.editor-skill-display > input {
+  flex: 5;
+}
+
+.editor-skill-display > button {
+  flex: 1;
+}
