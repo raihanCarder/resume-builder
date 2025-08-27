@@ -1,8 +1,8 @@
 import "./styles/App.css";
 import { useState } from "react";
 import { exampleData } from "./examplePerson";
-import Resume from "./resume";
-import Editor from "./editor";
+import Resume from "./components/resume/resume";
+import Editor from "./components/editor/editor";
 
 function App() {
   const [resumeData, setResumeData] = useState(exampleData);
