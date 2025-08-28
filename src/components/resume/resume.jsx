@@ -69,7 +69,7 @@ function EducationSection({ data }) {
           return (
             <div key={school.id} className="school-section">
               <div className="top-school-section">
-                <p>{school.program}</p>
+                <p className="bold">{school.program}</p>
                 <p>{school.timeThere}</p>
               </div>
               <p>{school.name}</p>
