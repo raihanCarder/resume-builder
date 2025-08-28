@@ -68,7 +68,12 @@ export default function LinkSection({ data, setResumeData }) {
           );
         })
       ) : (
-        <input value={newLink} onChange={(e) => setNewLink(e.target.value)} />
+        <input
+          value={newLink}
+          placeholder="Enter new Link:"
+          onChange={(e) => setNewLink(e.target.value)}
+          className="input-link"
+        />
       )}
       <div className="editor-links-btns">
         <button
