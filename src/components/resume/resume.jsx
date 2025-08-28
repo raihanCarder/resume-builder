@@ -82,6 +82,7 @@ function EducationSection({ data }) {
 }
 
 function ExperienceSection({ data }) {
+  if (!data.length) return null; // if no education make section empty
   return (
     <>
       <h3 className="sub-title">Experience</h3>
