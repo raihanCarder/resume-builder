@@ -2,6 +2,7 @@ import GeneralInfoSection from "./editorGenInfo";
 import SkillSection from "./editorSkills";
 import LinkSection from "./editorLinks";
 import EducationSection from "./editorEducation";
+import ExperienceSection from "./editorExperience";
 
 export default function Editor({ resumeData, setResumeData }) {
   return (
@@ -10,6 +11,7 @@ export default function Editor({ resumeData, setResumeData }) {
       <LinkSection data={resumeData} setResumeData={setResumeData} />
       <SkillSection data={resumeData} setResumeData={setResumeData} />
       <EducationSection data={resumeData} setResumeData={setResumeData} />
+      <ExperienceSection data={resumeData} setResumeData={setResumeData} />
     </div>
   );
 }

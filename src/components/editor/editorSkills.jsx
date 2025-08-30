@@ -35,19 +35,15 @@ function ViewSkills({ skills, setMode }) {
   return (
     <>
       <div className="editor-skill-section">
-        {skills.map((item) => {
-          return (
-            <>
-              <input
-                key={item.id}
-                type="text"
-                value={item.skill}
-                className="disabled-link"
-                disabled={true}
-              />
-            </>
-          );
-        })}
+        {skills.map((item) => (
+          <input
+            key={item.id}
+            type="text"
+            value={item.skill}
+            className="disabled-link"
+            disabled={true}
+          />
+        ))}
       </div>
       <div className="editor-button-section">
         <button type="button" onClick={() => setMode("add")}>

@@ -386,3 +386,45 @@ input {
 .bold {
   font-weight: bold;
 }
+
+/* experience section */
+
+.experience-card {
+  background-color: #e0e0e0;
+  padding: 0.5rem;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.view-experience-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+
+  padding-left: 1rem;
+}
+
+.view-experience-container > button {
+  width: 100%;
+}
+
+.task {
+  text-align: left;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.4rem;
+}
+
+.bottom-of-experience-card {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
