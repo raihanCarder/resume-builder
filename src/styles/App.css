@@ -492,8 +492,10 @@ input {
   align-items: flex-start;
   justify-content: center;
   width: 100%;
-  background-color: red;
   gap: 0.5rem;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  padding: 0.5rem;
 }
 
 .add-exp-btns {

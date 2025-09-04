@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ErrorMessage from "../errorMsg";
 
 export default function ExperienceSection({ data, setResumeData }) {
   const [mode, setMode] = useState("view");
@@ -27,6 +28,7 @@ function AddExperience({ setResumeData, setMode }) {
     tasks: [],
   });
 
+  const [viewErrors, setViewErrors] = useState(false);
   const [taskData, setTaskData] = useState("");
 
   const handleTaskInputChange = (value) => {
@@ -49,9 +51,46 @@ function AddExperience({ setResumeData, setMode }) {
     }));
   };
 
+  const handleExpChanges = (e) => {
+    const { name, value } = e.target;
+    setExperienceData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const addExpData = (e) => {
+    e.preventDefault();
+    setViewErrors(true);
+    if (
+      !experienceData.company ||
+      !experienceData.jobTitle ||
+      !experienceData.lengthOfEmployment
+    )
+      return;
+
+    setResumeData((prev) => ({
+      ...prev,
+      experience: [
+        ...prev.experience,
+        {
+          id: crypto.randomUUID(),
+          company: experienceData.company,
+          jobTitle: experienceData.jobTitle,
+          lengthOfEmployment: experienceData.lengthOfEmployment,
+          tasks: experienceData.tasks,
+        },
+      ],
+    }));
+    setMode("view");
+  };
+
   return (
     <div className="view-experience-container">
-      <form action="" noValidate method="post" className="add-exp-form">
+      <form
+        action=""
+        noValidate
+        method="post"
+        className="add-exp-form"
+        onSubmit={addExpData}
+      >
         <h2>General info:</h2>
         <div className="exp-info">
           <label htmlFor="exp-input-jobTitle">Job Title:</label>
@@ -60,6 +99,7 @@ function AddExperience({ setResumeData, setMode }) {
             name="jobTitle"
             id="exp-input-jobTitle"
             placeholder="ex: Software Dev"
+            onChange={(e) => handleExpChanges(e)}
           />
         </div>
         <div className="exp-info">
@@ -69,6 +109,7 @@ function AddExperience({ setResumeData, setMode }) {
             name="company"
             id="exp-input-company"
             placeholder="ex: Ubisoft"
+            onChange={(e) => handleExpChanges(e)}
           />
         </div>
         <div className="exp-info">
@@ -80,6 +121,7 @@ function AddExperience({ setResumeData, setMode }) {
             name="lengthOfEmployment"
             id="exp-input-len-employmeny"
             placeholder="ex: 2023-2046"
+            onChange={(e) => handleExpChanges(e)}
           />
         </div>
         <h2>Tasks:</h2>
@@ -108,6 +150,17 @@ function AddExperience({ setResumeData, setMode }) {
             </button>
           </div>
         </div>
+
+        {viewErrors && !experienceData.company && (
+          <ErrorMessage msg="Error: Company name empty " />
+        )}
+
+        {viewErrors && !experienceData.jobTitle && (
+          <ErrorMessage msg="Error: Job Title empty " />
+        )}
+        {viewErrors && !experienceData.lengthOfEmployment && (
+          <ErrorMessage msg="Error: Length of Employment empty " />
+        )}
 
         <div className="add-exp-btns">
           <button type="submit">Add Experience</button>
