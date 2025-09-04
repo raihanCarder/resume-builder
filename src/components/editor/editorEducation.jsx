@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ErrorMessage from "../errorMsg";
 
 export default function EducationSection({ data, setResumeData }) {
   const [mode, setMode] = useState("view");
@@ -265,14 +266,6 @@ function AddSchoolingInfo({ setResumeData, setMode }) {
           Exit
         </button>
       </form>
-    </>
-  );
-}
-
-function ErrorMessage({ msg }) {
-  return (
-    <>
-      <p className="error-message">{msg}</p>
     </>
   );
 }
