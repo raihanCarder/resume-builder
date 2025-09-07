@@ -1,6 +1,8 @@
 :root {
   --body-color: inherit;
   --line-color: black;
+  --dropDown-clr: #e0e0e0;
+  --content-clr: #b0b0b0;
 }
 
 /* The Container that holds both the Resume and Editor */
@@ -92,6 +94,10 @@
 .editor {
   width: 500px;
   border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 
   overflow-y: auto;
 }
@@ -318,7 +324,7 @@ input {
   width: 100%;
   gap: 0.2rem;
 
-  background: #e0e0e0; /* visible gray */
+  background: var(--content-clr); /* visible gray */
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -390,7 +396,7 @@ input {
 /* experience section */
 
 .experience-card {
-  background-color: #e0e0e0;
+  background-color: var(--content-clr);
   padding: 0.5rem;
   border-radius: 10px;
 
@@ -493,7 +499,7 @@ input {
   justify-content: center;
   width: 100%;
   gap: 0.5rem;
-  background-color: #e0e0e0;
+  background-color: var(--content-clr);
   border-radius: 10px;
   padding: 0.5rem;
 }
@@ -536,7 +542,7 @@ input {
 
   padding: 1rem;
   border-radius: 10px;
-  background-color: #e0e0e0;
+  background-color: var(--content-clr);
 }
 
 .edit-exp-input-content {
@@ -545,4 +551,13 @@ input {
   flex-direction: column;
   gap: 0.2rem;
   width: 100%;
+}
+
+/* Dropdown */
+
+details {
+  background-color: var(--dropDown-clr);
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-weight: bold;
 }
