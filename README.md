@@ -39,5 +39,5 @@ This project I focused on learning React and on building a **scalable React appl
 
 - React.js
 
-Created by Raihan Carder (https://github.com/raihanCarder)
+Created by Raihan Carder (https://github.com/raihanCarder).  
 Feel free to reach out!
