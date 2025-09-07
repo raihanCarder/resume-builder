@@ -2,7 +2,7 @@
 
 A Modern Web App to Create, Edit, and Export Resumes in Real-Time.
 
-This project I focused on learning React and on building a **scalable React application** with modular components, form handling, and dynamic sections — designed with an emphasis on clean UI/UX and practical usability.
+This project I focused on learning React and on building a **scalable React application** with modular components, form handling, and dynamic sections with an emphasis on clean UI/UX and practical usability.
 
 ## Features
 
@@ -29,10 +29,10 @@ This project I focused on learning React and on building a **scalable React appl
 
 ## Installation
 
-1. git clone https://github.com/your-username/resume-builder.git
-2. cd resume-builder
-3. npm install
-4. npm run dev
+1. Clone Repo: git clone https://github.com/your-username/resume-builder.git
+2. Navigate to cd resume-builder
+3. Install dependencies: npm install
+4. Run dev server: npm run dev
 5. Open @ http://localhost:5173 in browser (if using vite)
 
 ## Tech Stack
