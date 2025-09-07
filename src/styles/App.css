@@ -181,6 +181,10 @@ input {
   align-items: center;
 }
 
+.editor-btn-section > * {
+  flex: 1;
+}
+
 .top-school-section {
   display: flex;
   flex-direction: row;
