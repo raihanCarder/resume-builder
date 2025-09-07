@@ -173,6 +173,14 @@ input {
   width: 100%;
 }
 
+.editor-btn-section {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 .top-school-section {
   display: flex;
   flex-direction: row;
