@@ -1,13 +1,43 @@
-# React + Vite
+# Resume Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Modern Web App to Create, Edit, and Export Resumes in Real-Time.
 
-Currently, two official plugins are available:
+This project I focused on learning React and on building a **scalable React application** with modular components, form handling, and dynamic sections — designed with an emphasis on clean UI/UX and practical usability.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Add, Edit, and Delete Resume Sections (General Info, Links, Skills, Education, Experience)
+- Manage Tasks for each Experience dynamically
+- Live Preview of your resume while editing
+- Collapsible editor sections for clean organization
+- Export-ready format (easy to extend for PDF/print)
+- Responsive and Simple UI
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# resume-builder
+## Live Demo
+
+👉 [View Demo](https://resumebuilder-sepia-pi.vercel.app/)
+
+## Screenshots
+
+![Initialized Screen](./public/screenshot1.png)
+![Some Dropdowns Open](./public/screenshot2.png)
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+- npm (comes with Node)
+
+## Installation
+
+1. git clone https://github.com/your-username/resume-builder.git
+2. cd resume-builder
+3. npm install
+4. npm run dev
+5. Open @ http://localhost:5173 in browser (if using vite)
+
+## Tech Stack
+
+- React.js
+
+Created by Raihan Carder (https://github.com/raihanCarder)
+Feel free to reach out!
